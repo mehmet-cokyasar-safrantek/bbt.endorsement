@@ -101,7 +101,6 @@ namespace Api.Controllers
            var list= await Mediator.Send(new GetFormQuery());
             return Ok(list);
         }
-
         /// <summary>
         /// Form ile Emir Ekleme
         /// </summary>

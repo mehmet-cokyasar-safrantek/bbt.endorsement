@@ -25,5 +25,5 @@ using static Testing;
             };
             var response = await SendAsync(command);
             Assert.IsNotNull(id);
-        }
+       }
 }

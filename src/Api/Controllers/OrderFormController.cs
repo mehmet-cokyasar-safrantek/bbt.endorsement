@@ -1,5 +1,6 @@
 ﻿using Application.OrderForms.Commands.CreateOrderForm;
 using Application.OrderForms.Queries.GetApproverInformation;
+using Application.OrderForms.Queries.GetForms;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -22,7 +23,6 @@ namespace Api.Controllers
         [SwaggerResponse(201, "Success, form is created successfully.", typeof(void))]
         public async Task<IActionResult> CreateOrUpdateFormAsync([FromBody] FormDefinition data)
         {
-            //await Mediator.Send(new GetFormQuery { InstanceId = instanceId });
             return Ok();
         }
 
@@ -82,6 +82,27 @@ namespace Api.Controllers
             await Mediator.Send(new GetApproverInformationQuery { Type = type,Value = value});
             return Ok();
         }
+
+        /// <summary>
+        /// Form Bilgileri Getir
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        [SwaggerOperation(
+            Summary = "Get form name",
+            Description = "Returns form by name"
+        )]
+        [Route("form-name")]
+        [HttpGet]
+        [SwaggerResponse(200, "Success, form name is returned successfully.", typeof(string))]
+        [SwaggerResponse(404, "Form Name not found.", typeof(void))]
+        public async Task<IActionResult> GetFormAsync()
+        {
+           var list= await Mediator.Send(new GetFormQuery());
+            return Ok(list);
+        }
+
         /// <summary>
         /// Form ile Emir Ekleme
         /// </summary>

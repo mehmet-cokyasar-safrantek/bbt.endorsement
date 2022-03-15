@@ -82,7 +82,6 @@ namespace Api.Controllers
             await Mediator.Send(new GetApproverInformationQuery { Type = type,Value = value});
             return Ok();
         }
-
         /// <summary>
         /// Form Bilgileri Getir
         /// </summary>

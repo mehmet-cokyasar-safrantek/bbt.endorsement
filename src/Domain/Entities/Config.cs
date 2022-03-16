@@ -13,7 +13,7 @@ namespace Domain.Entities
         ///  emrin geçerlilik süresi dakika olarak tanımlanır. 
         /// </summary>
         [MaxLength(250)]
-        public string TimeoutMinutes { get; set; }
+        public string ExpireInMinutes { get; set; }
 
         /// <summary>
         /// hatırlatma frekansını belirlemek için kullanılır. 

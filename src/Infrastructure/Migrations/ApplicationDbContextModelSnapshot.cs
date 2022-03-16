@@ -111,6 +111,10 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)");
 
+                    b.Property<string>("ExpireInMinutes")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
 
@@ -123,10 +127,6 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("RetryFrequence")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("TimeoutMinutes")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -164,8 +164,9 @@ namespace Infrastructure.Migrations
                     b.Property<string>("OrderId")
                         .HasColumnType("nvarchar(36)");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<string>("Type")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("DocumentId");
 
@@ -261,12 +262,12 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Process")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("Number")
+                    b.Property<string>("ProcessNo")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");

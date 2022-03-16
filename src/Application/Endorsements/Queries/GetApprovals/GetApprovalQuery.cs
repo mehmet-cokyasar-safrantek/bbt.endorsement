@@ -18,7 +18,6 @@ namespace Application.Endorsements.Queries.GetApprovals
     public class GetApprovalQueryHandler : IRequestHandler<GetApprovalQuery, Response<List<GetApprovalDto>>>
     {
         private IApplicationDbContext _context;
-
         public GetApprovalQueryHandler(IApplicationDbContext context)
         {
             _context = context;
